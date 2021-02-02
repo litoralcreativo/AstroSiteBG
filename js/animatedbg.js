@@ -33,7 +33,7 @@ class Bubble {
             this.vy = ((Math.random()*0.0005) + 0.0005) + ySpeed*(Math.random()-0.5);
         }
         this.vr = 0;
-        this.vrIncr = Math.random()/1000;
+        this.vrIncr = (Math.random()+0.2)/2000;
         this.vx = ((Math.random()*0.0005) + 0.0005) + ySpeed*(Math.random()-0.5);
         this.color = color
     }
@@ -52,6 +52,10 @@ class Bubble {
             if (this.radius >= this.maxR){
                 this.shrink = true;
             }
+        }
+
+        if (this.radius <= 20) {
+            this.shrink = false;
         }
 
         if (this.radius <= 1) {
@@ -81,11 +85,11 @@ function handleBubbles() {
         }
     }
 
-    if (Bubbles.length < (window.innerWidth / 4)) {
+    if (Bubbles.length < (window.innerWidth / 12)) {
         addBubble();
     }
 
-    if (bgBubbles.length < (window.innerWidth / 8)) {
+    if (bgBubbles.length < (window.innerWidth / 12)) {
         addBgBubble();
     }
 }
