@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS animated BG</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="canvasbg"></canvas>
+    <canvas id="canvas"></canvas>
+    <script src="js/animatedbg.js"></script>
+
+    <svg>
+        <defs>
+            <filter id='goo'>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0
+                                                               0 1 0 0 0
+                                                               0 0 1 0 0
+                                                               0 0 0 30 -20"
+                                                               result="goo"/>
+                <feBlend in="blur" in2="goo"/>
+            </filter>
+        </defs>
+    </svg>
+
+</body>
+</html>
